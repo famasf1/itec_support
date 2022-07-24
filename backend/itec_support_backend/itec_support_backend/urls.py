@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from backendcore.views import SearchAPIView
+### ADMIN PAGE
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
-
-urlpatterns += [path('posts/', SearchAPIView.as_view()),]
+### THE REST
+urlpatterns += [
+    path('SearchviewAPI/', SearchAPIView.as_view()),
+]

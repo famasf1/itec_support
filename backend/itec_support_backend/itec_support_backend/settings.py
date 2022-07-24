@@ -144,7 +144,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ##    pip install djangorestframework-simplejwt
 
 REST_FRAMEWORK = {
-    # Use Django's standard 'django.contrib.auth' permissions,
+   # Use Django's standard 'django.contrib.auth' permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES' : [
         'rest_framework.permissions.IsAuthenticated',
@@ -156,6 +156,9 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
+
+##### TODO - Turn REST_FRAMEWORK AUTH Back on. I couldn't get it to work and 
+##### not interested in auth-related stuff right now. I JUST WANT SHIT TO WORK!
 
 SIMPLE_JWT = {
     # https://medium.com/django-rest/django-rest-framework-jwt-authentication-94bee36f2af8
