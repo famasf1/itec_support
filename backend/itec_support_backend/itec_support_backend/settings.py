@@ -152,13 +152,11 @@ REST_FRAMEWORK = {
     ],
     # Use REST Framework Simple JWT (Json Web Token)
     # For Django
+    # I don't know what i'm doing and why this is not working...
     'DEFAULT_AUTHENTICATION_CLASSES' : (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
-
-##### TODO - Turn REST_FRAMEWORK AUTH Back on. I couldn't get it to work and 
-##### not interested in auth-related stuff right now. I JUST WANT SHIT TO WORK!
 
 SIMPLE_JWT = {
     # https://medium.com/django-rest/django-rest-framework-jwt-authentication-94bee36f2af8
