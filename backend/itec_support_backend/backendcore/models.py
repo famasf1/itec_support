@@ -7,7 +7,7 @@ from django.conf import settings
 ### https://medium.com/flutter-community/django-search-flutter-1cb3e8a5db1a
 
 ## TODO - read our own documentations
-
+### Category model
 class Category(models.Model):
     name = models.CharField(max_length=50)
     def __str__(self):
@@ -24,7 +24,7 @@ class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
     
 
-
+### Post Model. Work on this first.
 class Post(models.Model):
     title = models.CharField(max_length=300, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
