@@ -9,6 +9,7 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => const MainPage(),
+      '/search': (context) => const SearchPage(),
     },
   ));
 }

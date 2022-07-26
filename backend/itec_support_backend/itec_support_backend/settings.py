@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     ##Internal App - App that comes pre-installed for django
-    'backendcore.apps.BackendcoreConfig',
+    'post.apps.postConfig',
     'rest_framework', #External module you need to download
     'corsheaders', #Cross-Origin Resource Sharing
     #Add CORS headers to response. Allow in-browser request from others ends.
