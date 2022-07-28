@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
+import '../service/search_service.dart';
+
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
 
@@ -15,9 +17,9 @@ class _SearchPageState extends State<SearchPage> {
     SearchService.searchPostDjangoAPI(value).then((responseBody) {
       List<dynamic> data = jsonDecode(responseBody);
       setState(() {
-        data.forEach((value) {
+        for (var value in data) {
           searchResults.add(value);
-        });
+        }
       });
     });
   }
@@ -28,11 +30,11 @@ class _SearchPageState extends State<SearchPage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("ITEC  Support"),
+          title: const Text("ITEC Support"),
           centerTitle: true,
         ),
         body: ListView(
-          children: const <Widget>[
+          children: <Widget>[
             Padding(
               padding: EdgeInsets.all(10.0),
               child: TextField(
@@ -64,11 +66,27 @@ class _SearchPageState extends State<SearchPage> {
               },
             ),
           ],
-//TODO : Finish this piece of code
-//too tired and sleepy :/
-//https://medium.com/flutter-community/django-search-flutter-1cb3e8a5db1a
         ),
       ),
     );
   }
+}
+
+Widget buildResultCard(data) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      children: <Widget>[
+        ListTile(
+          title: Text(
+            data['title'],
+            style: const TextStyle(fontFamily: 'Fontcraft'),
+          ),
+        ),
+        const Divider(
+          color: Colors.black,
+        )
+      ],
+    ),
+  );
 }
