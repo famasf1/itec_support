@@ -1,4 +1,4 @@
-"""itec_support_backend URL Configuration
+"""itec_support URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -13,15 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.contrib import admin
 from django.urls import path, include
-from post.views import SearchAPIView
-### ADMIN PAGE
+from post import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('post.urls')),
 ]
-### THE REST
-urlpatterns += [
-    path('SearchviewAPI/', SearchAPIView.as_view()),
-]
+
