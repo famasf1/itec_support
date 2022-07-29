@@ -22,9 +22,16 @@ jobs:
       # You can specify other versions if desired, see documentation here:
       # https://github.com/dart-lang/setup-dart/blob/main/README.md
       # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
+      - name: Installing dart...
+        uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+      - name: Installing flutter...
+        uses: subosito/flutter-action@v2.6.1
+        with:
+          channal: 'stable'
+      - run: flutter --version
       - name: Install dependencies
+        working-directory: .\frontend
         run: flutter pub get
 
 
@@ -33,11 +40,13 @@ jobs:
       #   run: dart format --output=none --set-exit-if-changed .
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze
-
       # Your project will need to have tests in test/ and a dependency on
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
       - name: Run tests
-        run: dart test
+        run: flutter test
+
+      - name: Create APK tests
+        run: flutter build apk
+        run: flutter build appbundle
+
