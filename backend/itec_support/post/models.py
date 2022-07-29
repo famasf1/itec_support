@@ -9,7 +9,7 @@ STATUS = (
 )
 
 class Post(models.Model):
-    title = models.CharField(max_length=2000, unique=True)
+    title = models.CharField(max_length=2000, unique=True,)
     content = models.TextField(default='')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='guide_post', blank=True, default='Admin')
     updated_on = models.DateTimeField(auto_now=True)
