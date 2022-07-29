@@ -1,1 +1,4 @@
 backend/itec_support/itec_support/.env
+.packages
+.dart_tool/
+pubspec.lock
